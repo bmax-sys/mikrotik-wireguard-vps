@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #111; }
+      .label { font: 700 22px Arial, sans-serif; fill: #111; }
+      .text { font: 18px Arial, sans-serif; fill: #333; }
+      .small { font: 16px Arial, sans-serif; fill: #555; }
+      .box { fill: #ffffff; stroke: #111; stroke-width: 2.5; rx: 16; }
+      .wg { fill: #f4f4f4; stroke: #111; stroke-width: 2; rx: 12; }
+      .line { stroke: #111; stroke-width: 3; fill: none; }
+      .dash { stroke: #555; stroke-width: 2; stroke-dasharray: 8 8; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="45" text-anchor="middle" class="title">
+    MikroTik WireGuard VPS Topology
+  </text>
+
+  <!-- Laptop -->
+  <rect x="40" y="170" width="230" height="150" class="box"/>
+  <text x="155" y="210" text-anchor="middle" class="label">Remote Laptop</text>
+  <text x="155" y="248" text-anchor="middle" class="text">WireGuard Client</text>
+  <text x="155" y="282" text-anchor="middle" class="text">10.66.66.3/32</text>
+
+  <!-- VPS -->
+  <rect x="350" y="140" width="250" height="210" class="box"/>
+  <text x="475" y="185" text-anchor="middle" class="label">Public VPS</text>
+  <text x="475" y="225" text-anchor="middle" class="text">Ubuntu + WireGuard</text>
+  <text x="475" y="260" text-anchor="middle" class="text">10.66.66.1/24</text>
+  <text x="475" y="295" text-anchor="middle" class="small">UDP 51820</text>
+  <text x="475" y="325" text-anchor="middle" class="small">Public IPv4</text>
+
+  <!-- MikroTik -->
+  <rect x="680" y="140" width="250" height="210" class="box"/>
+  <text x="805" y="185" text-anchor="middle" class="label">MikroTik</text>
+  <text x="805" y="225" text-anchor="middle" class="text">Behind NAT / CGNAT</text>
+  <text x="805" y="260" text-anchor="middle" class="text">WG: 10.66.66.2/24</text>
+  <text x="805" y="295" text-anchor="middle" class="text">LAN: 192.168.88.1</text>
+  <text x="805" y="325" text-anchor="middle" class="small">RouterOS 7</text>
+
+  <!-- Remote LAN -->
+  <rect x="1010" y="170" width="150" height="150" class="box"/>
+  <text x="1085" y="210" text-anchor="middle" class="label">Remote LAN</text>
+  <text x="1085" y="250" text-anchor="middle" class="text">192.168.88.0/24</text>
+  <text x="1085" y="285" text-anchor="middle" class="small">Devices</text>
+
+  <!-- Connections -->
+  <line x1="270" y1="245" x2="350" y2="245" class="line" marker-end="url(#arrow)"/>
+  <line x1="600" y1="245" x2="680" y2="245" class="line" marker-end="url(#arrow)"/>
+  <line x1="930" y1="245" x2="1010" y2="245" class="line" marker-end="url(#arrow)"/>
+
+  <!-- Labels -->
+  <text x="310" y="220" text-anchor="middle" class="small">Internet</text>
+  <text x="640" y="220" text-anchor="middle" class="small">WireGuard</text>
+  <text x="970" y="220" text-anchor="middle" class="small">LAN</text>
+
+  <!-- Tunnel -->
+  <path d="M155 390 L805 390" class="dash"/>
+  <text x="480" y="420" text-anchor="middle" class="small">
+    Encrypted WireGuard path via public VPS
+  </text>
+
+  <text x="600" y="475" text-anchor="middle" class="small">
+    Remote access without requiring a public IPv4 address on the MikroTik side
+  </text>
+</svg>
