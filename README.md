@@ -5,7 +5,7 @@ Remote access to a MikroTik LAN behind NAT/CGNAT using WireGuard through a publi
 This project demonstrates how to build a secure WireGuard VPN where a public VPS acts as a central hub between a remote client and a MikroTik router located behind NAT or CGNAT.
 
 ## Network Topology
-
+![Network Topology](images/network-topology.svg)
 ```text
 Remote Laptop
 WireGuard: 10.66.66.3
